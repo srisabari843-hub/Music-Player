@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel="preconnect"href="https://fonts.googleapis.com"/>
-    <link rel="preconnect"href="https://fonts.gstatic.com"crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link 
-       href="https://fonts.googleapis.com/css2?family=fraunces:ital,opsz,wght@o,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:Wght@400:500&family=Inter:Wght@400;500;600&disply=swap"
+       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
        rel="stylesheet"
     />
-    <link rel="stylesheet"href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
 
@@ -26,43 +26,83 @@
                         <div class="tonearm-arm"></div>
                         <div class="tonearm-pivot"></div>
                 </div>
-               </div>
             </div>
-            <p class="status-link" id="status-link">ready</p>
+            <p class="status-line" id="status-line">Ready</p>
            </section>
+
+
+
            <section class="now-playing">
             <p class="eyebrow">Now playing</p>
-            <h1 class="track-title" id="track-title">-</h1> 
+            <h1 class="track-title" id="track-title">—</h1> 
             <p class="track-meta">
               <span id="track-artist">-</span>
-              <span class="meta-divider">.</span>
+              <span class="meta-divider">·</span>
               <span id="track-album">-</span>
             </p> 
             
-            <div class="progress-warp">
+
+
+            <div class="progress-wrap">
               <div class="progress-bar" id="progress-bar">
                 <div class="progress-fill" id="progress-fill"></div>
                 <div class="progress-handle" id="progress-handle"></div>
               </div>
               <div class="time-row">
                 <span id="current-time" class="time">0:00</span>
-                <span id="total-time"class="time">0.00</span>
-                <span id="total-time"class="time">--:--</span>
+                <span id="total-time" class="time">--:--</span>
               </div>
             </div>
 
-            <div class="transport">
-                <button class="control-btn"id="shuffle-btn"aria-label="Toggle shuffle"title="shuffle">
-                    <svg viewBox="0 0 24 24" width="18" height="18"><path fill="current color"d="M17 3h4v4h-2v6.411-3.29 3.3-1.42-1.42L17.59 5H16zm4 14h-4v-2h1.59 1-3.3-3.29 1.42-1.42L20 13.59v12h2m2.71 6.29 4.29 4.7 9 9.4211.29-1.3 1.42 1.42L10.41 11 15.59v14h2v5h-5v-2h1.591-4.3-4.29-1.29 1.29-1.42-1.42L7.88 11 2.71 6.29z"/></svg>
-                </button>
-                <button class="control-btn" id="prev-btn" aria-label="previous track" title="previous">
-                    <sav viewBox="0 0 24 24"Width="22" height="22"><path fill="cuuentcolor" d="M6 6h2v12H6zm3.5 6 8.5 6v6z"/></sav>
-                </button>
-                <button class="control-btn control-btn-main" id="play-btn"aria-labl="play-icon"fill="currentcolor" d="m8 5v14111-7z"/></div>
 
-                    
-</head>
-<body>
-    
+
+            <div class="transport">
+                <button class="control-btn" id="shuffle-btn" aria-label="Toggle shuffle"title="shuffle">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M17 3h4v4h-2V6.41l-3.29 3.3-1.42-1.42L17.59 5H16zm4 14h-4v-2h1.59l-3.3-3.29 1.42-1.42L20 13.59V12h2zM2.71 6.29 4.29 4.7 9 9.42l1.29-1.3 1.42 1.42L10.41 11 15 15.59V14h2v5h-5v-2h1.59l-4.3-4.29-1.29 1.29-1.42-1.42L7.88 11 2.71 6.29z"/></svg>
+                </button>
+
+
+                <button class="control-btn" id="prev-btn" aria-label="previous track" title="previous">
+                    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+                </button>
+                
+            
+                 <button class="control-btn control-btn-main" id="play-btn" aria-label="Play">
+                  <svg viewBox="0 0 24 24" width="26" height="26"><path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                 </button>
+
+
+                 <button class="control-btn" id="next-btn" aria-label="next track" title="Next">
+                  <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M16  6h2v12h-2zM6 18l8.5-6L6 6z"/></svg>
+                 </button>
+
+                 <button class="control-btn" id="repeat-btn"  aria-label="Repeat playlist" title="Repeat" data-mode="off">
+                  <svg viewBox = "0 0 24 24" width="18" height="18"><path fill="currentColor" d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg>
+                 </button>
+              </div>
+         
+
+
+              <div class="volume-row">
+                <svg viewBox="0 0 24 24" width="16" height="16" class="volume-icon"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10zm13.5 2A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                  <input type="range" id="volume-slider" min="0" max="100" value="70" aria-label="Volume" />
+              </div>
+
+            </section>
+
+              <section class="playlist-panel">
+                <div class="playlist-header">
+                 <span>Track</span>
+                 <span class="playlist-header-time">Time</span>
+                </div>
+                <ul class="playlist" id="playlist"></ul>
+              </section>
+               
+              </main> 
+              
+              <script src="js/icons.js"></script>
+              <script src="js/songs.js"></script>
+              <script src="js/player.js"></script>
+              <script  src="js/ui.js"></script>
 </body>
 </html> 
