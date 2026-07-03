@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="preconnect"href="https://fonts.googleapis.com"/>
+    <link rel="preconnect"href="https://fonts.gstatic.com"crossorigin/>
+    <link 
+       href="https://fonts.googleapis.com/css2?family=fraunces:ital,opsz,wght@o,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:Wght@400:500&family=Inter:Wght@400;500;600&disply=swap"
+       rel="stylesheet"
+    />
+    <link rel="stylesheet"href="css/style.css"/>
+    </head>
+    <body>
+
+     <main class="console">
+
+        <section class="turntable-panel"aria-hidden="false">
+            <div class="turntable">
+                <div class="disc" id="disc">
+                    <div class="disc-grooves"></div>
+                    <div class="disc-label"></div>
+                </div>
+                <div class="tonearm" id="tonearm">
+                        <div class="tonearm-arm"></div>
+                        <div class="tonearm-pivot"></div>
+                </div>
+               </div>
+            </div>
+            <p class="status-link" id="status-link">ready</p>
+           </section>
+           <section class="now-playing">
+            <p class="eyebrow">Now playing</p>
+            <h1 class="track-title" id="track-title">-</h1> 
+            <p class="track-meta">
+              <span id="track-artist">-</span>
+              <span class="meta-divider">.</span>
+              <span id="track-album">-</span>
+            </p> 
+            
+            <div class="progress-warp">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+                <div class="progress-handle" id="progress-handle"></div>
+              </div>
+              <div class="time-row">
+                <span id="current-time" class="time">0:00</span>
+                <span id="total-time"class="time">0.00</span>
+                <span id="total-time"class="time">--:--</span>
+              </div>
+            </div>
+
+            <div class="transport">
+                <button class="control-btn"id="shuffle-btn"aria-label="Toggle shuffle"title="shuffle">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path fill="current color"d="M17 3h4v4h-2v6.411-3.29 3.3-1.42-1.42L17.59 5H16zm4 14h-4v-2h1.59 1-3.3-3.29 1.42-1.42L20 13.59v12h2m2.71 6.29 4.29 4.7 9 9.4211.29-1.3 1.42 1.42L10.41 11 15.59v14h2v5h-5v-2h1.591-4.3-4.29-1.29 1.29-1.42-1.42L7.88 11 2.71 6.29z"/></svg>
+                </button>
+                <button class="control-btn" id="prev-btn" aria-label="previous track" title="previous">
+                    <sav viewBox="0 0 24 24"Width="22" height="22"><path fill="cuuentcolor" d="M6 6h2v12H6zm3.5 6 8.5 6v6z"/></sav>
+                </button>
+                <button class="control-btn control-btn-main" id="play-btn"aria-labl="play-icon"fill="currentcolor" d="m8 5v14111-7z"/></div>
+
+                    
+</head>
+<body>
+    
+</body>
+</html> 
