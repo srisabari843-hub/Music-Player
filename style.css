@@ -5,16 +5,16 @@
     --text: #f2ede4;
     --text-dim: #9c9488;
     --text-faint: #635c50;
-    -brass: #c9a227;
+    --brass: #c9a227;
     --brass-soft: rgba(201, 162, 39, 0.16);
     --walnut: #8c6a4f;
     --error: #b5533c;
+    --panel-raised:#221d16;
 
 
     --font-display: "Fraunces", "Iowan Old Style", serif;
-    --font-body: "Inter", system-ui, san-serif;
-    --font-moun: "IBM Plex Mono", ui-monospace, monospace;
-
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
     --radius: 10px;
 }
@@ -62,18 +62,27 @@ button {
 .console {
     width: 100%;
     max-width: 860px;
-    background: var(--line);
+    background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 18px;
+     display: grid;
     padding: 28px;
-    display: grid;
-    grid: 28px;
+    grid-template-columns:220px 1fr;
+    gap: 28px;
     box-shadow:
-        0 40px 800px -30px rgba(0, 0, 0, 0.6),
-        insert 0 1px 0 rgba(255, 255, 255, 0.03);
+        0 40px 80px -30px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /*signature  element*/
+
+.turntable-panel{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+}
+
 
 .turntable {
     position: relative;
@@ -82,27 +91,27 @@ button {
     background: var(--panel-raised);
     border-radius: 50%;
     border: 1px solid var(--line);
-    display: flex;
+    display: grid;
     place-items: center;
-    box-shadow: insert 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 
 .disc {
-    --laebl-color: #c9a227;
+    --label-color: #c9a227;
     width: 168px;
     height: 168px;
     border-radius: 50%;
     position: relative;
     background:
-        radial-gradient(circle at 50% 50%, #0c0b09 60%, #0c0b09 100%);
+        radial-gradient(circle at 50% 50%, #0c0b09 0%,#17140f 60%, #0c0b09 100%);
     animation: spin 3.2s linear infinite;
     animation-play-state: paused;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
-
-body.is-playing.disc {
+       
+body.is-playing .disc {
     animation-play-state: running;
 }
 
@@ -115,6 +124,7 @@ body.is-playing.disc {
             rgba(255, 255, 255, 0.035) 0px,
             rgba(255, 255, 255, 0.035) 1px,
             transparent 2px,
+            transparent 5px
         );
 }
 
@@ -122,20 +132,20 @@ body.is-playing.disc {
     position: absolute;
     inset: 62px;
     border-radius: 50%;
-    background: rgb(209, 206, 24);
+    background: var(--label-color);
     display: grid;
     place-items: center;
-    box-shadow: inset 0 0 0 1px rgba(81, 9, 175, 0.25);
-}
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
+} 
 
 .disc-label::after {
     content: "";
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--bg)
+    background: var(--bg);
 }
-
+   
 
 @keyframes spin {
     to {
@@ -143,12 +153,14 @@ body.is-playing.disc {
     }
 }
 
+
 .tonearm {
     position: absolute;
     top: -6px;
     right: -2px;
     width: 90px;
     height: 90px;
+    transform-origin:82px 8px;
     transform: rotate(-18deg);
     transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.4, 1);
     pointer-events: none;
@@ -195,18 +207,15 @@ body.is-playing .tonearm {
     color: var(--error);
 }
 
-.status-error {
-    color: var(--error);
-}
 
 .now-playing {
     display: flex;
-    flex-direction: colum;
+    flex-direction: column;
     min-width: 0;
 }
 
 .eyebrow {
-    margin: 2p 0 6px;
+    margin: 2px 0 6px;
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.14em;
@@ -226,7 +235,7 @@ body.is-playing .tonearm {
 }
 
 .track-meta {
-    margin: 6px 0 0;
+    margin:6px 0 0;
     color: var(--text-dim);
     font-size: 14px;
     white-space: nowrap;
@@ -242,22 +251,27 @@ body.is-playing .tonearm {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.mata-divider {
+    
+.meta-divider {
     margin: 0 6px;
     color: var(--text-faint);
 }
 
 .progress-bar {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 0%;
-    background: var(--brass);
-    border-radius: 2px;
+    position: relative;
+    height: 4px;
+    border-radius:2px;
+    background: var(--line);
+    cursor:pointer;
+    touch-action:none;
 }
 
-.progress-handle {
-    position: absolvte;
+.progress-wrap{
+    margin-top:22px;
+}
+
+.progress-fill {
+    position: absolute;
     inset: 0 auto 0 0;
     width: 0%;
     background: var(--brass);
@@ -320,13 +334,18 @@ body.is-playing .tonearm {
     outline-offset: 2px;
 }
 
-.control-btn:fcus-visible {
-    outline: 2x solid var(--brass);
+.control-btn:focus-visible {
+    outline: 2px solid var(--brass);
     outline-offset: 2px;
 }
 
 .control-active {
-    color: var(-brass);
+    color: var(--brass);
+}
+
+.control-btn-main:hover{
+    background:#ddb636;
+    color:var(--bg);
 }
 
 .control-btn-main {
@@ -350,12 +369,12 @@ body.is-playing .tonearm {
 }
 
 input[type="range"] {
-    -webkit-apperance: none;
+    -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 3px;
     background: var(--line);
-    border-radius: 50%;
+    border-radius: 2px;
     outline-offset: 4px;
 }
 
@@ -363,12 +382,13 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 11px;
-    height: 11px;
+    height: 11px;           
     border-radius: 50%;
     background: var(--text-dim);
     cursor: pointer;
-    transition: background 0.15s%;
+    transition: background 0.15s;
 }
+
 
 input[type="range"]:hover::-webkit-slider-thumb,
 input[type="range"]:focus-visible::-webkit-slider-thumb {
@@ -386,7 +406,144 @@ input[type="range"]::-moz-range-thumb{
 
 
 
-.playlist-pane {
-    grid-column: 6px;
-    
+.playlist-panel {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+
+.playlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 264px;
+    overflow-y: auto;
+}
+
+.track-row {
+    display: grid;
+    grid-template-columns: 26px 8px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.track-row:hover {
+    background: rgba(242, 237, 228,0.045);
+}
+
+.track-row.active {
+    background: var(--brass-soft);
+}
+
+.track-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
+}
+
+.track-row.active .track-num {
+    color: var(--brass);
+}
+
+.track-swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+ 
+         
+.track-info {  
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+
+.track-row-title{
+    font-size:14px;
+    font-weight:500;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+.track-row.active .track-row-title{
+    color: var(--brass);
+}
+
+
+.track-row-artist{
+    font-size:12.5px;
+    color: var(--text-faint);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.track-duration{
+    font-family: var(--font-mono);
+    font-size:12px;
+    color: var(--text-faint);
+}
+
+.playlist::-webkit-scrollbar{
+    width:6px;
+}
+
+.playlist::-webkit-scrollbar-thumb{
+    background:var(--line);
+    border-radius:3px;
+}
+
+
+@media (max-width:640px){
+    .console{
+        grid-template-columns:1fr;
+        padding:20px;
+    }
+
+    .turntable-panel{
+        flex-direction:row;
+        justify-content:center;
+    }
+
+    .turntable{
+        width:120px;
+        height:120px;
+    }
+   
+    .disc{
+        width:100px;
+        height:100px;
+    }
+
+    .disc-label{
+        inset:36px;
+    }
+
+    .status-line{
+        display:none;
+    }
+
+    .track-title{
+        font-size:24px;
+    }
 }
