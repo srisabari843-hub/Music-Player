@@ -29,30 +29,30 @@
             </div>
             <p class="status-line" id="status-line">Ready</p>
            </section>
-
+            
 
  
            <section class="now-playing">
-            <p class="eyebrow">Now playing</p>
-            <h1 class="track-title" id="track-title">—</h1> 
-            <p class="track-meta">
-              <span id="track-artist">-</span>
-              <span class="meta-divider">·</span>
-              <span id="track-album">-</span>
-            </p> 
-            
+              <p class="eyebrow">Now playing</p>
+              <h1 class="track-title" id="track-title">—</h1> 
+              <p class="track-meta">
+                <span id="track-artist">-</span>
+                <span class="meta-divider">·</span>
+                <span id="track-album">-</span>
+              </p> 
+              
 
 
-            <div class="progress-wrap">
-              <div class="progress-bar" id="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-                <div class="progress-handle" id="progress-handle"></div>
+              <div class="progress-wrap">
+                <div class="progress-bar" id="progress-bar">
+                  <div class="progress-fill" id="progress-fill"></div>
+                  <div class="progress-handle" id="progress-handle"></div>
+                </div>
+                <div class="time-row">
+                  <span id="current-time" class="time">0:00</span>
+                  <span id="total-time" class="time">--:--</span>
+                </div>
               </div>
-              <div class="time-row">
-                <span id="current-time" class="time">0:00</span>
-                <span id="total-time" class="time">--:--</span>
-              </div>
-            </div>
 
 
 
@@ -70,7 +70,7 @@
                  <button class="control-btn control-btn-main" id="play-btn" aria-label="Play">
                   <svg viewBox="0 0 24 24" width="26" height="26"><path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"/></svg>
                  </button>
-
+                                      
 
                  <button class="control-btn" id="next-btn" aria-label="next track" title="Next">
                   <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M16  6h2v12h-2zM6 18l8.5-6L6 6z"/></svg>
@@ -85,8 +85,8 @@
 
               <div class="volume-row">
                 <svg viewBox="0 0 24 24" width="16" height="16" class="volume-icon"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10zm13.5 2A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <input type="range" id="volume-slider" min="0" max="100" value="70" aria-label="Volume" />
-              </div>
+                  <input type="range" id="volume-slider" min="0" max="100" value="10" aria-label="Volume" />
+              </div>        
 
             </section>
 
