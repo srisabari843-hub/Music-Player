@@ -16,12 +16,12 @@ class player {
 
     on(event, cb) {
         (this._listeners[event] ||=[]).push(cb);
-        return this;
+        return this;   
     }
 
     _emit(event, payload) {
         (this._listeners[event] || []).forEach((cb) => cb(payload));
-    }
+    }      
 
     _bindAudioEvents() {
         this.audio.addEventListener("loadedmetadata", () => {
