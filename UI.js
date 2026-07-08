@@ -116,22 +116,22 @@ document.addEventListener("DOMContentLoaded", () => {
         e1.repeatBtn.dataset.mode=mode;
         e1.repeatBtn.querySelector("text")?.remove();
         if (mode === "one"){
-            e1.repeatBtn.setAttribute("arial-label","Repaet one track");
+            e1.repeatBtn.setAttribute("aria-label","Repaet one track");
         }
         else{
-            e1.repeatBtn.setAttribute("arial-label","Report playlist");    
+            e1.repeatBtn.setAttribute("aria-label","Report playlist");    
         }
     });
 
 
-    e1.playBtn.addEventListener("click",()=>player.tofflePlay());
+    e1.playBtn.addEventListener("click",()=>player.togglePlay());
     e1.nextBtn.addEventListener("click",()=>player.next());
     e1.prevBtn.addEventListener("click",()=>player.prev());
     e1.shuffleBtn.addEventListener("click",()=>player.toggleShuffle());
-    e1.repestBtn.addEventListener("click",()=>player.cycleRepeeat());
+    e1.repeatBtn.addEventListener("click",()=>player.cycleRepeat());
     e1.volume.addEventListener("input",(e)=> player.setVolume(e.target.value/100));
                               
-              
+               
  let dragging=false;
 
  function ratioFromEvent(e){
