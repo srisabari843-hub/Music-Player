@@ -47,3 +47,8 @@ Controls
 
 if something's not loading.
    =>Almost always a path or filename mismatch between index.html and what's actually on disk.
+   -> open your browser dev console (F12)
+   ->if you see 404 errors,that's the problem.
+   ->Check that every <script src="..."> and <link href="...">path in index.html matches your real file names - including capital letters.
+
+
