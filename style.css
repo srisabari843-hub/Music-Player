@@ -197,7 +197,7 @@ body.is-playing .tonearm {
   height:15px;
   width:15px;
   border-radius:50%;
-  background-color:brown;
+  background-color:rgb(252, 112, 112);
   position:absolute;
   top:-4px;
   right:-4px;

@@ -1,6 +1,7 @@
 
 
 class Player {
+    
     constructor(songs) {
         this.songs = songs;
         this.currentIndex = 0;
@@ -22,7 +23,7 @@ class Player {
     _emit(event, payload) {
         (this._listeners[event] || []).forEach((cb) => cb(payload));
     }      
-    
+
     _bindAudioEvents(){                      
         this.audio.addEventListener("loadedmetadata", () => {
             this.currentSong.duration = this.audio.duration;
